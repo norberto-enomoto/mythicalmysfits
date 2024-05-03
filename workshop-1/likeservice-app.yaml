@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mythical-mysfits-like
+  namespace: default
+  labels:
+    app: mythical-mysfits-like
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mythical-mysfits-like
+  template:
+    metadata:
+      labels:
+        app: mythical-mysfits-like
+    spec:
+      serviceAccount: mythical-misfit
+      containers:
+        - name: mythical-mysfits-like
+          image: 133483808259.dkr.ecr.us-east-2.amazonaws.com/cfn-container-like-oo8qmto9ayz6:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+              protocol: TCP
+          env:
+            - name: MONOLITH_URL
+              value: alb-133483808259-1715721611.us-east-2.elb.amazonaws.com
+            - name: DDB_TABLE_NAME
+              value: Table-133483808259
+            - name: AWS_DEFAULT_REGION
+              value: us-east-2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mythical-mysfits-like
+spec:
+  type: NodePort
+  selector:
+    app: mythical-mysfits-like
+  ports:
+   -  protocol: TCP
+      port: 80
+      targetPort: 80

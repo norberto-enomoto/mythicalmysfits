@@ -1,0 +1,8 @@
+{
+  "EKSCloud9EnvId": "https://us-east-2.console.aws.amazon.com/cloud9/ide/b5d265ab50634e23bec3df7e15cc50ba?region=us-east-2",
+  "LoadBalancerDNS": "alb-133483808259-1715721611.us-east-2.elb.amazonaws.com",
+  "DynamoTable": "Table-133483808259",
+  "ProfileName": "cfn-container-MythicalProfile-HbxTbjaAgYcu",
+  "SiteBucket": "cfn-container-mythicalbucket-ul0nfyz1ckoy",
+  "S3WebsiteURL": "http://cfn-container-mythicalbucket-ul0nfyz1ckoy.s3-website.us-east-2.amazonaws.com"
+}
